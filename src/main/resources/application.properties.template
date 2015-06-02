@@ -1,0 +1,4 @@
+server.port=8082
+app.portsadapters.allegro.username=<login>
+app.portsadapters.allegro.password_base_64=<encoded password>
+app.portsadapters.allegro.key=<webapi key>

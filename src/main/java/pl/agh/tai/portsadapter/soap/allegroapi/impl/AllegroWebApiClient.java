@@ -3,6 +3,9 @@ package pl.agh.tai.portsadapter.soap.allegroapi.impl;
 import org.apache.axis.encoding.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import pl.agh.tai.domain.Auction;
 import pl.agh.tai.domain.Vendor;
 import pl.agh.tai.portsadapter.soap.allegroapi.api.AuctionPredicate;
@@ -25,21 +28,22 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.toSet;
 
+@Component
 public class AllegroWebApiClient {
     private final static Logger log = LoggerFactory.getLogger(AllegroWebApiClient.class);
 
     private static final int COUNTRY_CODE = 1; // Poland
-    private static final String ALLEGRO_USERNAME = System.getenv("ALLEGRO_USERNAME");
-    private static final String ALLEGRO_PASSWORD_BASE64 = System.getenv("ALLEGRO_PASSWORD_BASE64");
-    private static final String ALLEGRO_KEY = System.getenv("ALLEGRO_KEY");
 
     private AllegroWebApiPortType apiPort;
     private StringHolder sessionHolder;
 
-
-    public AllegroWebApiClient() {
+    @Autowired
+    public AllegroWebApiClient(@Value("${app.portsadapters.allegro.username}") String username,
+                               @Value("${app.portsadapters.allegro.password_base_64}") String encodedPassword,
+                               @Value("${app.portsadapters.allegro.key}") String webApiKey) {
         try {
-            login(ALLEGRO_USERNAME, ALLEGRO_PASSWORD_BASE64, ALLEGRO_KEY);
+            log.info("Logging to allegro with: {} {} {}", username, encodedPassword, webApiKey);
+            login(username, encodedPassword, webApiKey);
         } catch (Exception e) {
             log.error("Error during login to allegro!: ", e);
         }
@@ -98,14 +102,13 @@ public class AllegroWebApiClient {
                     searchCountFeatured, searchArray, searchExcludedWords,
                     searchCategories);
 
+
+            String auctionUrlTemplate = "http://allegro.pl/ShowItem2.php?item=";
             return Arrays.stream(searchArray.value)
-                    .map(wsdlAuction -> {
-                        Auction auction = new Auction(Vendor.ALLEGRO,
-                                wsdlAuction.getSItThumbUrl(),
-                                wsdlAuction.getSItName(),
-                                wsdlAuction.getSItName());
-                        return auction;
-                    })
+                    .map(wsdlAuction -> new Auction(Vendor.ALLEGRO,
+                            wsdlAuction.getSItThumbUrl(),
+                            wsdlAuction.getSItName(),
+                            auctionUrlTemplate + Long.valueOf(wsdlAuction.getSItId()).toString()))
                     .collect(toSet());
 
         } catch (Exception e) {
