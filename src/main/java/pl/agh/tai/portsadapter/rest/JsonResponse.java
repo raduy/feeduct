@@ -1,4 +1,4 @@
-package pl.agh.tai.portsadapter;
+package pl.agh.tai.portsadapter.rest;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

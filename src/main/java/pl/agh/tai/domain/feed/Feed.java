@@ -23,6 +23,10 @@ public class Feed {
         return id;
     }
 
+    public FeedQuery feedQuery() {
+        return feedQuery;
+    }
+
     public void updateAuctions(@NotNull Collection<Auction> newAuctions) {
         checkNotNull(newAuctions, "New auctions cannot be null. Provide empty if notching match");
         this.auctions = newAuctions;
