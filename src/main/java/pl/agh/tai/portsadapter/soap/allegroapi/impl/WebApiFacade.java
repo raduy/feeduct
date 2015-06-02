@@ -8,11 +8,8 @@ import pl.agh.tai.portsadapter.soap.allegroapi.api.IWebApiFacade;
 
 import java.util.Set;
 
-/**
- * @author Lukasz Raduj <raduj.lukasz@gmail.com>
- */
 @Component
-public class WebApiFacade implements IWebApiFacade {
+class WebApiFacade implements IWebApiFacade {
 
     private final AllegroWebApiClient client;
 
@@ -22,7 +19,7 @@ public class WebApiFacade implements IWebApiFacade {
     }
 
     @Override
-    public Set<Auction> findAllAuctionByPredicate(AuctionPredicate predicate) {
+    public Set<Auction> findAuctionsByPredicate(AuctionPredicate predicate) {
         return client.loadAuctionsByPredicate(predicate);
     }
 }

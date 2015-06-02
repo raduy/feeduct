@@ -23,7 +23,7 @@ public class AllegroClient implements IAllegroClient {
     @Override
     public Collection<Auction> findMatchingAuctions(FeedQuery query) {
         AuctionPredicate predicate = new AuctionPredicate(query.keywords());
-        return webApiFacade.findAllAuctionByPredicate(predicate);
+        return webApiFacade.findAuctionsByPredicate(predicate);
     }
 
 }

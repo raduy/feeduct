@@ -9,6 +9,7 @@ import pl.agh.tai.domain.feed.FeedId;
 import pl.agh.tai.domain.feed.FeedQuery;
 import pl.agh.tai.domain.repository.IFeedRepository;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -17,20 +18,24 @@ import static org.springframework.http.HttpStatus.CREATED;
 @RequestMapping("/feeds")
 public class FeedsController {
 
-    @Autowired
-    private IFeedRepository feedRepository;
+    private final IFeedRepository feedRepository;
+    private final FeedFactory feedFactory;
+    private final FeedService feedService;
 
     @Autowired
-    private FeedFactory feedFactory;
-
-    @Autowired
-    private FeedService feedService;
+    public FeedsController(IFeedRepository feedRepository,
+                           FeedFactory feedFactory,
+                           FeedService feedService) {
+        this.feedRepository = feedRepository;
+        this.feedFactory = feedFactory;
+        this.feedService = feedService;
+    }
 
     @ResponseStatus(CREATED)
     @RequestMapping(value = "/",
             method = RequestMethod.POST,
             consumes = "application/json")
-    public JsonResponse addFeed(@RequestBody FeedQuery feed) {
+    public JsonResponse addFeed(@RequestBody @Valid FeedQuery feed) {
         this.feedService.registerNewFeed(feedFactory.newFeed(feed));
 
         return JsonResponse.ofSuccess();

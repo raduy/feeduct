@@ -6,5 +6,5 @@ import pl.agh.tai.domain.Auction;
 import java.util.Set;
 
 public interface IWebApiFacade {
-    Set<Auction> findAllAuctionByPredicate(AuctionPredicate predicate);
+    Set<Auction> findAuctionsByPredicate(AuctionPredicate predicate);
 }

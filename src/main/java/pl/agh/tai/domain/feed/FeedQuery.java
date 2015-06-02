@@ -2,9 +2,12 @@ package pl.agh.tai.domain.feed;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class FeedQuery {
+    @NotEmpty
     private final String keywords;
+    @NotEmpty
     private final String description;
 
     @JsonCreator
