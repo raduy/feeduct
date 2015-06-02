@@ -2,7 +2,9 @@ package pl.agh.tai.portsadapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.agh.tai.domain.aggregage.Feed;
+import pl.agh.tai.domain.feed.Feed;
+import pl.agh.tai.domain.feed.FeedFactory;
+import pl.agh.tai.domain.feed.FeedQuery;
 import pl.agh.tai.domain.repository.IFeedRepository;
 
 import java.util.Collection;
@@ -16,12 +18,15 @@ public class FeedsController {
     @Autowired
     private IFeedRepository feedRepository;
 
+    @Autowired
+    private FeedFactory feedFactory;
+
     @ResponseStatus(CREATED)
     @RequestMapping(value = "/",
             method = RequestMethod.POST,
             consumes = "application/json")
-    public JsonResponse addFeed(@RequestBody Feed feed) {
-        this.feedRepository.add(feed);
+    public JsonResponse addFeed(@RequestBody FeedQuery feed) {
+        this.feedRepository.add(feedFactory.newFeed(feed));
 
         return JsonResponse.ofSuccess();
     }

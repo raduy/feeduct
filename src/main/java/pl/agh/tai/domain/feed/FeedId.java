@@ -1,4 +1,4 @@
-package pl.agh.tai.domain.aggregage;
+package pl.agh.tai.domain.feed;
 
 import java.util.UUID;
 

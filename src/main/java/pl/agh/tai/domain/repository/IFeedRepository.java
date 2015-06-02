@@ -1,7 +1,7 @@
 package pl.agh.tai.domain.repository;
 
-import pl.agh.tai.domain.aggregage.Feed;
-import pl.agh.tai.domain.aggregage.FeedId;
+import pl.agh.tai.domain.feed.Feed;
+import pl.agh.tai.domain.feed.FeedId;
 
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
