@@ -4,7 +4,15 @@ import java.util.UUID;
 
 
 public class FeedId {
-    private final String id = UUID.randomUUID().toString();
+    private final String id;
+
+    public FeedId() {
+        this.id = UUID.randomUUID().toString();
+    }
+
+    public FeedId(String id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {
