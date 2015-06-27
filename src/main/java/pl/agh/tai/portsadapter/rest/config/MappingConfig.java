@@ -1,4 +1,4 @@
-package pl.agh.tai.config;
+package pl.agh.tai.portsadapter.rest.config;
 
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
