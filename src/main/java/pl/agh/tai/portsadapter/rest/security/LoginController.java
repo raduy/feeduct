@@ -21,16 +21,16 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class LoginController {
     private static final Logger LOG = getLogger(LoginController.class);
 
-    private final AuthenticationService authenticationService;
+    private final AuthenticationService authService;
 
     @Autowired
-    public LoginController(AuthenticationService authenticationService) {
-        this.authenticationService = authenticationService;
+    public LoginController(AuthenticationService authService) {
+        this.authService = authService;
     }
 
-    @RequestMapping(value = "/login", method = POST, consumes = APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/login", method = POST, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public JsonResponse<AuthToken> doLogin(@RequestBody Credentials credentials) {
-        Optional<AuthToken> tokenOptional = authenticationService.loginWithCredentials(credentials);
+        Optional<AuthToken> tokenOptional = authService.loginWithCredentials(credentials);
 
         return JsonResponse.ofSuccess(tokenOptional.orElseThrow(() -> new BadCredentialsException(credentials)));
     }
@@ -41,5 +41,12 @@ public class LoginController {
         LOG.debug("No user of {} credentials found", ex.credentials());
 
         return JsonResponse.ofException(ex);
+    }
+
+    @RequestMapping(value = "/logout", method = POST, consumes = APPLICATION_JSON_VALUE)
+    public JsonResponse doLogout(@RequestHeader("Authorization") String authHeader) {
+        authService.doLogout(authHeader.split("\\s+")[1]);
+
+        return JsonResponse.ofSuccess();
     }
 }

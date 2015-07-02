@@ -5,7 +5,10 @@ import com.google.common.cache.CacheBuilder;
 import org.springframework.stereotype.Component;
 import pl.agh.tai.portsadapter.rest.security.AuthToken;
 
+import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+
+import static java.util.Objects.isNull;
 
 /**
  * @author Lukasz Raduj 2015 raduj.lukasz@gmail.com.
@@ -21,7 +24,14 @@ public class TokenCache {
         cache.put(authToken.token(), authToken);
     }
 
-    public AuthToken load(String token) {
-        return cache.getIfPresent(token);
+    public Optional<AuthToken> load(String token) {
+        if (isNull(token)) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(cache.getIfPresent(token));
+    }
+
+    public void invalidate(String authToken) {
+        cache.invalidate(authToken);
     }
 }

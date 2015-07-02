@@ -32,4 +32,13 @@ public class AuthenticationService {
                     return authToken;
                 });
     }
+
+    public boolean isTokenValid(String header) {
+        Optional<AuthToken> authToken = tokenCache.load(header);
+        return authToken.isPresent();
+    }
+
+    public void doLogout(String authToken) {
+        tokenCache.invalidate(authToken);
+    }
 }
