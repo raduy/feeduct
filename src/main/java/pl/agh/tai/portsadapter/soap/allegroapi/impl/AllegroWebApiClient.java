@@ -92,7 +92,7 @@ class AllegroWebApiClient {
         ArrayOfPhotoinfotype photosInfo = wsdlAuction.getPhotosInfo();
         try {
             return photosInfo.getItem(0).getPhotoUrl();
-        } catch (IndexOutOfBoundsException ex) {
+        } catch (Exception ex) {
             //no photos for this auction, return default
         }
         return DEFAULT_PHOTO_URL;

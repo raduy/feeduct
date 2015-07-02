@@ -3,6 +3,7 @@ package pl.agh.tai.portsadapter.rest.security.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -24,6 +25,10 @@ public class UserRepository {
     }
 
     public void saveUnique(User user) {
+        User existing = userDao.findOne(user.email());
+        if (Objects.nonNull(existing)) {
+            throw new UserAlreadyExistsException(user.email());
+        }
         userDao.save(user);
     }
 }

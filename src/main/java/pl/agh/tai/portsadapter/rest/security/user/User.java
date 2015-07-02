@@ -1,5 +1,7 @@
 package pl.agh.tai.portsadapter.rest.security.user;
 
+import pl.agh.tai.portsadapter.rest.security.Credentials;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -23,6 +25,10 @@ public class User {
 
     public String password() {
         return password;
+    }
+
+    public static User fromCredentials(Credentials credentials) {
+        return new User(credentials.email(), credentials.password());
     }
 
     User() { //why JPA why
