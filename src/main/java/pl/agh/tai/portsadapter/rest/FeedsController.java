@@ -15,7 +15,7 @@ import java.util.Collection;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
-@RequestMapping("/feeds")
+@RequestMapping("/api/v1/feeds")
 public class FeedsController {
 
     private final IFeedRepository feedRepository;
