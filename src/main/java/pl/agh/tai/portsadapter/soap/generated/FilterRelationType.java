@@ -8,19 +8,19 @@
 package pl.agh.tai.portsadapter.soap.generated;
 
 public class FilterRelationType  implements java.io.Serializable {
-    private java.lang.String[] relationAnd;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationAnd;
 
-    private java.lang.String[] relationOr;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationOr;
 
-    private java.lang.String[] relationExclude;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationExclude;
 
     public FilterRelationType() {
     }
 
     public FilterRelationType(
-           java.lang.String[] relationAnd,
-           java.lang.String[] relationOr,
-           java.lang.String[] relationExclude) {
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationAnd,
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationOr,
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationExclude) {
            this.relationAnd = relationAnd;
            this.relationOr = relationOr;
            this.relationExclude = relationExclude;
@@ -32,7 +32,7 @@ public class FilterRelationType  implements java.io.Serializable {
      * 
      * @return relationAnd
      */
-    public java.lang.String[] getRelationAnd() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfString getRelationAnd() {
         return relationAnd;
     }
 
@@ -42,7 +42,7 @@ public class FilterRelationType  implements java.io.Serializable {
      * 
      * @param relationAnd
      */
-    public void setRelationAnd(java.lang.String[] relationAnd) {
+    public void setRelationAnd(pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationAnd) {
         this.relationAnd = relationAnd;
     }
 
@@ -52,7 +52,7 @@ public class FilterRelationType  implements java.io.Serializable {
      * 
      * @return relationOr
      */
-    public java.lang.String[] getRelationOr() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfString getRelationOr() {
         return relationOr;
     }
 
@@ -62,7 +62,7 @@ public class FilterRelationType  implements java.io.Serializable {
      * 
      * @param relationOr
      */
-    public void setRelationOr(java.lang.String[] relationOr) {
+    public void setRelationOr(pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationOr) {
         this.relationOr = relationOr;
     }
 
@@ -72,7 +72,7 @@ public class FilterRelationType  implements java.io.Serializable {
      * 
      * @return relationExclude
      */
-    public java.lang.String[] getRelationExclude() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfString getRelationExclude() {
         return relationExclude;
     }
 
@@ -82,7 +82,7 @@ public class FilterRelationType  implements java.io.Serializable {
      * 
      * @param relationExclude
      */
-    public void setRelationExclude(java.lang.String[] relationExclude) {
+    public void setRelationExclude(pl.agh.tai.portsadapter.soap.generated.ArrayOfString relationExclude) {
         this.relationExclude = relationExclude;
     }
 
@@ -100,13 +100,13 @@ public class FilterRelationType  implements java.io.Serializable {
         _equals = true && 
             ((this.relationAnd==null && other.getRelationAnd()==null) || 
              (this.relationAnd!=null &&
-              java.util.Arrays.equals(this.relationAnd, other.getRelationAnd()))) &&
+              this.relationAnd.equals(other.getRelationAnd()))) &&
             ((this.relationOr==null && other.getRelationOr()==null) || 
              (this.relationOr!=null &&
-              java.util.Arrays.equals(this.relationOr, other.getRelationOr()))) &&
+              this.relationOr.equals(other.getRelationOr()))) &&
             ((this.relationExclude==null && other.getRelationExclude()==null) || 
              (this.relationExclude!=null &&
-              java.util.Arrays.equals(this.relationExclude, other.getRelationExclude())));
+              this.relationExclude.equals(other.getRelationExclude())));
         __equalsCalc = null;
         return _equals;
     }
@@ -119,37 +119,13 @@ public class FilterRelationType  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getRelationAnd() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getRelationAnd());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getRelationAnd(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getRelationAnd().hashCode();
         }
         if (getRelationOr() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getRelationOr());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getRelationOr(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getRelationOr().hashCode();
         }
         if (getRelationExclude() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getRelationExclude());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getRelationExclude(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getRelationExclude().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -160,23 +136,26 @@ public class FilterRelationType  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(FilterRelationType.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "FilterRelationType"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "FilterRelationType"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("relationAnd");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "relation-and"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "relationAnd"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfString"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("relationOr");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "relation-or"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "relationOr"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfString"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("relationExclude");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "relation-exclude"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "relationExclude"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfString"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

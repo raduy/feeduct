@@ -6,6 +6,7 @@ import pl.agh.tai.domain.Auction;
 import pl.agh.tai.portsadapter.soap.allegroapi.api.AuctionPredicate;
 import pl.agh.tai.portsadapter.soap.allegroapi.api.IWebApiFacade;
 
+import java.util.Collections;
 import java.util.Set;
 
 @Component

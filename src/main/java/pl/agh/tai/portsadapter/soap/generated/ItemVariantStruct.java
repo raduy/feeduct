@@ -12,7 +12,7 @@ public class ItemVariantStruct  implements java.io.Serializable {
 
     private int quantity;
 
-    private pl.agh.tai.portsadapter.soap.generated.ItemVariantAttributeStruct[] attributes;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfItemvariantattributestruct attributes;
 
     public ItemVariantStruct() {
     }
@@ -20,7 +20,7 @@ public class ItemVariantStruct  implements java.io.Serializable {
     public ItemVariantStruct(
            java.lang.String id,
            int quantity,
-           pl.agh.tai.portsadapter.soap.generated.ItemVariantAttributeStruct[] attributes) {
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfItemvariantattributestruct attributes) {
            this.id = id;
            this.quantity = quantity;
            this.attributes = attributes;
@@ -72,7 +72,7 @@ public class ItemVariantStruct  implements java.io.Serializable {
      * 
      * @return attributes
      */
-    public pl.agh.tai.portsadapter.soap.generated.ItemVariantAttributeStruct[] getAttributes() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfItemvariantattributestruct getAttributes() {
         return attributes;
     }
 
@@ -82,7 +82,7 @@ public class ItemVariantStruct  implements java.io.Serializable {
      * 
      * @param attributes
      */
-    public void setAttributes(pl.agh.tai.portsadapter.soap.generated.ItemVariantAttributeStruct[] attributes) {
+    public void setAttributes(pl.agh.tai.portsadapter.soap.generated.ArrayOfItemvariantattributestruct attributes) {
         this.attributes = attributes;
     }
 
@@ -104,7 +104,7 @@ public class ItemVariantStruct  implements java.io.Serializable {
             this.quantity == other.getQuantity() &&
             ((this.attributes==null && other.getAttributes()==null) || 
              (this.attributes!=null &&
-              java.util.Arrays.equals(this.attributes, other.getAttributes())));
+              this.attributes.equals(other.getAttributes())));
         __equalsCalc = null;
         return _equals;
     }
@@ -121,15 +121,7 @@ public class ItemVariantStruct  implements java.io.Serializable {
         }
         _hashCode += getQuantity();
         if (getAttributes() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getAttributes());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getAttributes(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getAttributes().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -140,23 +132,24 @@ public class ItemVariantStruct  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(ItemVariantStruct.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemVariantStruct"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ItemVariantStruct"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("id");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "id"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "id"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("quantity");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "quantity"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "quantity"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("attributes");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "attributes"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemVariantAttributeStruct"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "attributes"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfItemvariantattributestruct"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

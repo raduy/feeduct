@@ -106,16 +106,16 @@ public class ItemVariantAttributeStruct  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(ItemVariantAttributeStruct.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemVariantAttributeStruct"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ItemVariantAttributeStruct"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("name");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "name"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "name"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("value");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "value"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "value"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

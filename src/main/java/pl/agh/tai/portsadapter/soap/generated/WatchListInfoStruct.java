@@ -8,16 +8,16 @@
 package pl.agh.tai.portsadapter.soap.generated;
 
 public class WatchListInfoStruct  implements java.io.Serializable {
-    private long[] itemsAdded;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfLong itemsAdded;
 
-    private pl.agh.tai.portsadapter.soap.generated.ItemsNotAddedStruct[] itemsNotAdded;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfItemsnotaddedstruct itemsNotAdded;
 
     public WatchListInfoStruct() {
     }
 
     public WatchListInfoStruct(
-           long[] itemsAdded,
-           pl.agh.tai.portsadapter.soap.generated.ItemsNotAddedStruct[] itemsNotAdded) {
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfLong itemsAdded,
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfItemsnotaddedstruct itemsNotAdded) {
            this.itemsAdded = itemsAdded;
            this.itemsNotAdded = itemsNotAdded;
     }
@@ -28,7 +28,7 @@ public class WatchListInfoStruct  implements java.io.Serializable {
      * 
      * @return itemsAdded
      */
-    public long[] getItemsAdded() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfLong getItemsAdded() {
         return itemsAdded;
     }
 
@@ -38,7 +38,7 @@ public class WatchListInfoStruct  implements java.io.Serializable {
      * 
      * @param itemsAdded
      */
-    public void setItemsAdded(long[] itemsAdded) {
+    public void setItemsAdded(pl.agh.tai.portsadapter.soap.generated.ArrayOfLong itemsAdded) {
         this.itemsAdded = itemsAdded;
     }
 
@@ -48,7 +48,7 @@ public class WatchListInfoStruct  implements java.io.Serializable {
      * 
      * @return itemsNotAdded
      */
-    public pl.agh.tai.portsadapter.soap.generated.ItemsNotAddedStruct[] getItemsNotAdded() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfItemsnotaddedstruct getItemsNotAdded() {
         return itemsNotAdded;
     }
 
@@ -58,7 +58,7 @@ public class WatchListInfoStruct  implements java.io.Serializable {
      * 
      * @param itemsNotAdded
      */
-    public void setItemsNotAdded(pl.agh.tai.portsadapter.soap.generated.ItemsNotAddedStruct[] itemsNotAdded) {
+    public void setItemsNotAdded(pl.agh.tai.portsadapter.soap.generated.ArrayOfItemsnotaddedstruct itemsNotAdded) {
         this.itemsNotAdded = itemsNotAdded;
     }
 
@@ -76,10 +76,10 @@ public class WatchListInfoStruct  implements java.io.Serializable {
         _equals = true && 
             ((this.itemsAdded==null && other.getItemsAdded()==null) || 
              (this.itemsAdded!=null &&
-              java.util.Arrays.equals(this.itemsAdded, other.getItemsAdded()))) &&
+              this.itemsAdded.equals(other.getItemsAdded()))) &&
             ((this.itemsNotAdded==null && other.getItemsNotAdded()==null) || 
              (this.itemsNotAdded!=null &&
-              java.util.Arrays.equals(this.itemsNotAdded, other.getItemsNotAdded())));
+              this.itemsNotAdded.equals(other.getItemsNotAdded())));
         __equalsCalc = null;
         return _equals;
     }
@@ -92,26 +92,10 @@ public class WatchListInfoStruct  implements java.io.Serializable {
         __hashCodeCalc = true;
         int _hashCode = 1;
         if (getItemsAdded() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getItemsAdded());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getItemsAdded(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getItemsAdded().hashCode();
         }
         if (getItemsNotAdded() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getItemsNotAdded());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getItemsNotAdded(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getItemsNotAdded().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -122,17 +106,19 @@ public class WatchListInfoStruct  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(WatchListInfoStruct.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "WatchListInfoStruct"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "WatchListInfoStruct"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itemsAdded");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "items-added"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itemsAdded"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfLong"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itemsNotAdded");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "items-not-added"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemsNotAddedStruct"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itemsNotAdded"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfItemsnotaddedstruct"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

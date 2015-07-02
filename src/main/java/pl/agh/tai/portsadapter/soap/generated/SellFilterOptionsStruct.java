@@ -8,31 +8,31 @@
 package pl.agh.tai.portsadapter.soap.generated;
 
 public class SellFilterOptionsStruct  implements java.io.Serializable {
-    private int filterFormat;
+    private java.lang.Integer filterFormat;
 
-    private int filterBids;
+    private java.lang.Integer filterBids;
 
-    private int filterToEnd;
+    private java.lang.Integer filterToEnd;
 
-    private int filterFromStart;
+    private java.lang.Integer filterFromStart;
 
-    private int filterAutoListing;
+    private java.lang.Integer filterAutoListing;
 
     private pl.agh.tai.portsadapter.soap.generated.FilterPriceStruct filterPrice;
 
-    private int filterDurationType;
+    private java.lang.Integer filterDurationType;
 
     public SellFilterOptionsStruct() {
     }
 
     public SellFilterOptionsStruct(
-           int filterFormat,
-           int filterBids,
-           int filterToEnd,
-           int filterFromStart,
-           int filterAutoListing,
+           java.lang.Integer filterFormat,
+           java.lang.Integer filterBids,
+           java.lang.Integer filterToEnd,
+           java.lang.Integer filterFromStart,
+           java.lang.Integer filterAutoListing,
            pl.agh.tai.portsadapter.soap.generated.FilterPriceStruct filterPrice,
-           int filterDurationType) {
+           java.lang.Integer filterDurationType) {
            this.filterFormat = filterFormat;
            this.filterBids = filterBids;
            this.filterToEnd = filterToEnd;
@@ -48,7 +48,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @return filterFormat
      */
-    public int getFilterFormat() {
+    public java.lang.Integer getFilterFormat() {
         return filterFormat;
     }
 
@@ -58,7 +58,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @param filterFormat
      */
-    public void setFilterFormat(int filterFormat) {
+    public void setFilterFormat(java.lang.Integer filterFormat) {
         this.filterFormat = filterFormat;
     }
 
@@ -68,7 +68,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @return filterBids
      */
-    public int getFilterBids() {
+    public java.lang.Integer getFilterBids() {
         return filterBids;
     }
 
@@ -78,7 +78,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @param filterBids
      */
-    public void setFilterBids(int filterBids) {
+    public void setFilterBids(java.lang.Integer filterBids) {
         this.filterBids = filterBids;
     }
 
@@ -88,7 +88,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @return filterToEnd
      */
-    public int getFilterToEnd() {
+    public java.lang.Integer getFilterToEnd() {
         return filterToEnd;
     }
 
@@ -98,7 +98,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @param filterToEnd
      */
-    public void setFilterToEnd(int filterToEnd) {
+    public void setFilterToEnd(java.lang.Integer filterToEnd) {
         this.filterToEnd = filterToEnd;
     }
 
@@ -108,7 +108,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @return filterFromStart
      */
-    public int getFilterFromStart() {
+    public java.lang.Integer getFilterFromStart() {
         return filterFromStart;
     }
 
@@ -118,7 +118,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @param filterFromStart
      */
-    public void setFilterFromStart(int filterFromStart) {
+    public void setFilterFromStart(java.lang.Integer filterFromStart) {
         this.filterFromStart = filterFromStart;
     }
 
@@ -128,7 +128,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @return filterAutoListing
      */
-    public int getFilterAutoListing() {
+    public java.lang.Integer getFilterAutoListing() {
         return filterAutoListing;
     }
 
@@ -138,7 +138,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @param filterAutoListing
      */
-    public void setFilterAutoListing(int filterAutoListing) {
+    public void setFilterAutoListing(java.lang.Integer filterAutoListing) {
         this.filterAutoListing = filterAutoListing;
     }
 
@@ -168,7 +168,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @return filterDurationType
      */
-    public int getFilterDurationType() {
+    public java.lang.Integer getFilterDurationType() {
         return filterDurationType;
     }
 
@@ -178,7 +178,7 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
      * 
      * @param filterDurationType
      */
-    public void setFilterDurationType(int filterDurationType) {
+    public void setFilterDurationType(java.lang.Integer filterDurationType) {
         this.filterDurationType = filterDurationType;
     }
 
@@ -194,15 +194,27 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            this.filterFormat == other.getFilterFormat() &&
-            this.filterBids == other.getFilterBids() &&
-            this.filterToEnd == other.getFilterToEnd() &&
-            this.filterFromStart == other.getFilterFromStart() &&
-            this.filterAutoListing == other.getFilterAutoListing() &&
+            ((this.filterFormat==null && other.getFilterFormat()==null) || 
+             (this.filterFormat!=null &&
+              this.filterFormat.equals(other.getFilterFormat()))) &&
+            ((this.filterBids==null && other.getFilterBids()==null) || 
+             (this.filterBids!=null &&
+              this.filterBids.equals(other.getFilterBids()))) &&
+            ((this.filterToEnd==null && other.getFilterToEnd()==null) || 
+             (this.filterToEnd!=null &&
+              this.filterToEnd.equals(other.getFilterToEnd()))) &&
+            ((this.filterFromStart==null && other.getFilterFromStart()==null) || 
+             (this.filterFromStart!=null &&
+              this.filterFromStart.equals(other.getFilterFromStart()))) &&
+            ((this.filterAutoListing==null && other.getFilterAutoListing()==null) || 
+             (this.filterAutoListing!=null &&
+              this.filterAutoListing.equals(other.getFilterAutoListing()))) &&
             ((this.filterPrice==null && other.getFilterPrice()==null) || 
              (this.filterPrice!=null &&
               this.filterPrice.equals(other.getFilterPrice()))) &&
-            this.filterDurationType == other.getFilterDurationType();
+            ((this.filterDurationType==null && other.getFilterDurationType()==null) || 
+             (this.filterDurationType!=null &&
+              this.filterDurationType.equals(other.getFilterDurationType())));
         __equalsCalc = null;
         return _equals;
     }
@@ -214,15 +226,27 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        _hashCode += getFilterFormat();
-        _hashCode += getFilterBids();
-        _hashCode += getFilterToEnd();
-        _hashCode += getFilterFromStart();
-        _hashCode += getFilterAutoListing();
+        if (getFilterFormat() != null) {
+            _hashCode += getFilterFormat().hashCode();
+        }
+        if (getFilterBids() != null) {
+            _hashCode += getFilterBids().hashCode();
+        }
+        if (getFilterToEnd() != null) {
+            _hashCode += getFilterToEnd().hashCode();
+        }
+        if (getFilterFromStart() != null) {
+            _hashCode += getFilterFromStart().hashCode();
+        }
+        if (getFilterAutoListing() != null) {
+            _hashCode += getFilterAutoListing().hashCode();
+        }
         if (getFilterPrice() != null) {
             _hashCode += getFilterPrice().hashCode();
         }
-        _hashCode += getFilterDurationType();
+        if (getFilterDurationType() != null) {
+            _hashCode += getFilterDurationType().hashCode();
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -232,47 +256,54 @@ public class SellFilterOptionsStruct  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(SellFilterOptionsStruct.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "SellFilterOptionsStruct"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "SellFilterOptionsStruct"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterFormat");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-format"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterFormat"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterBids");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-bids"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterBids"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterToEnd");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-to-end"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterToEnd"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterFromStart");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-from-start"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterFromStart"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterAutoListing");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-auto-listing"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterAutoListing"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterPrice");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-price"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "FilterPriceStruct"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterPrice"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "FilterPriceStruct"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterDurationType");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-duration-type"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterDurationType"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

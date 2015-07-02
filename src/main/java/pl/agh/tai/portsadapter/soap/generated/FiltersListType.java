@@ -20,9 +20,9 @@ public class FiltersListType  implements java.io.Serializable {
 
     private boolean filterIsRange;
 
-    private int filterArraySize;
+    private java.lang.Integer filterArraySize;
 
-    private pl.agh.tai.portsadapter.soap.generated.FilterValueType[] filterValues;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfFiltervaluetype filterValues;
 
     private pl.agh.tai.portsadapter.soap.generated.FilterRelationType filterRelations;
 
@@ -36,8 +36,8 @@ public class FiltersListType  implements java.io.Serializable {
            java.lang.String filterControlType,
            java.lang.String filterDataType,
            boolean filterIsRange,
-           int filterArraySize,
-           pl.agh.tai.portsadapter.soap.generated.FilterValueType[] filterValues,
+           java.lang.Integer filterArraySize,
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfFiltervaluetype filterValues,
            pl.agh.tai.portsadapter.soap.generated.FilterRelationType filterRelations) {
            this.filterId = filterId;
            this.filterName = filterName;
@@ -176,7 +176,7 @@ public class FiltersListType  implements java.io.Serializable {
      * 
      * @return filterArraySize
      */
-    public int getFilterArraySize() {
+    public java.lang.Integer getFilterArraySize() {
         return filterArraySize;
     }
 
@@ -186,7 +186,7 @@ public class FiltersListType  implements java.io.Serializable {
      * 
      * @param filterArraySize
      */
-    public void setFilterArraySize(int filterArraySize) {
+    public void setFilterArraySize(java.lang.Integer filterArraySize) {
         this.filterArraySize = filterArraySize;
     }
 
@@ -196,7 +196,7 @@ public class FiltersListType  implements java.io.Serializable {
      * 
      * @return filterValues
      */
-    public pl.agh.tai.portsadapter.soap.generated.FilterValueType[] getFilterValues() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfFiltervaluetype getFilterValues() {
         return filterValues;
     }
 
@@ -206,7 +206,7 @@ public class FiltersListType  implements java.io.Serializable {
      * 
      * @param filterValues
      */
-    public void setFilterValues(pl.agh.tai.portsadapter.soap.generated.FilterValueType[] filterValues) {
+    public void setFilterValues(pl.agh.tai.portsadapter.soap.generated.ArrayOfFiltervaluetype filterValues) {
         this.filterValues = filterValues;
     }
 
@@ -258,10 +258,12 @@ public class FiltersListType  implements java.io.Serializable {
              (this.filterDataType!=null &&
               this.filterDataType.equals(other.getFilterDataType()))) &&
             this.filterIsRange == other.isFilterIsRange() &&
-            this.filterArraySize == other.getFilterArraySize() &&
+            ((this.filterArraySize==null && other.getFilterArraySize()==null) || 
+             (this.filterArraySize!=null &&
+              this.filterArraySize.equals(other.getFilterArraySize()))) &&
             ((this.filterValues==null && other.getFilterValues()==null) || 
              (this.filterValues!=null &&
-              java.util.Arrays.equals(this.filterValues, other.getFilterValues()))) &&
+              this.filterValues.equals(other.getFilterValues()))) &&
             ((this.filterRelations==null && other.getFilterRelations()==null) || 
              (this.filterRelations!=null &&
               this.filterRelations.equals(other.getFilterRelations())));
@@ -292,17 +294,11 @@ public class FiltersListType  implements java.io.Serializable {
             _hashCode += getFilterDataType().hashCode();
         }
         _hashCode += (isFilterIsRange() ? Boolean.TRUE : Boolean.FALSE).hashCode();
-        _hashCode += getFilterArraySize();
+        if (getFilterArraySize() != null) {
+            _hashCode += getFilterArraySize().hashCode();
+        }
         if (getFilterValues() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getFilterValues());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getFilterValues(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getFilterValues().hashCode();
         }
         if (getFilterRelations() != null) {
             _hashCode += getFilterRelations().hashCode();
@@ -316,59 +312,62 @@ public class FiltersListType  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(FiltersListType.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "FiltersListType"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "FiltersListType"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterId");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-id"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterName");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-name"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterType");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-type"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterType"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterControlType");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-control-type"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterControlType"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterDataType");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-data-type"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterDataType"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterIsRange");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-is-range"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterIsRange"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterArraySize");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-array-size"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterArraySize"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterValues");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-values"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "FilterValueType"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterValues"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfFiltervaluetype"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("filterRelations");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "filter-relations"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "FilterRelationType"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "filterRelations"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "FilterRelationType"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

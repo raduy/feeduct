@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 
+//@ToString
 public class JsonResponse<T> {
     private static final String SUCCESS_MESSAGE = "Success";
     private final boolean wasSuccessful;
@@ -47,5 +48,14 @@ public class JsonResponse<T> {
 
     public String message() {
         return message;
+    }
+
+    @Override
+    public String toString() {
+        return "JsonResponse{" +
+                "wasSuccessful=" + wasSuccessful +
+                ", data=" + data +
+                ", message='" + message + '\'' +
+                '}';
     }
 }

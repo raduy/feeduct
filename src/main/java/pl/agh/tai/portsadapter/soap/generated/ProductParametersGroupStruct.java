@@ -10,14 +10,14 @@ package pl.agh.tai.portsadapter.soap.generated;
 public class ProductParametersGroupStruct  implements java.io.Serializable {
     private java.lang.String productParametersGroupName;
 
-    private pl.agh.tai.portsadapter.soap.generated.ProductParametersStruct[] productParametersList;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfProductparametersstruct productParametersList;
 
     public ProductParametersGroupStruct() {
     }
 
     public ProductParametersGroupStruct(
            java.lang.String productParametersGroupName,
-           pl.agh.tai.portsadapter.soap.generated.ProductParametersStruct[] productParametersList) {
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfProductparametersstruct productParametersList) {
            this.productParametersGroupName = productParametersGroupName;
            this.productParametersList = productParametersList;
     }
@@ -48,7 +48,7 @@ public class ProductParametersGroupStruct  implements java.io.Serializable {
      * 
      * @return productParametersList
      */
-    public pl.agh.tai.portsadapter.soap.generated.ProductParametersStruct[] getProductParametersList() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfProductparametersstruct getProductParametersList() {
         return productParametersList;
     }
 
@@ -58,7 +58,7 @@ public class ProductParametersGroupStruct  implements java.io.Serializable {
      * 
      * @param productParametersList
      */
-    public void setProductParametersList(pl.agh.tai.portsadapter.soap.generated.ProductParametersStruct[] productParametersList) {
+    public void setProductParametersList(pl.agh.tai.portsadapter.soap.generated.ArrayOfProductparametersstruct productParametersList) {
         this.productParametersList = productParametersList;
     }
 
@@ -79,7 +79,7 @@ public class ProductParametersGroupStruct  implements java.io.Serializable {
               this.productParametersGroupName.equals(other.getProductParametersGroupName()))) &&
             ((this.productParametersList==null && other.getProductParametersList()==null) || 
              (this.productParametersList!=null &&
-              java.util.Arrays.equals(this.productParametersList, other.getProductParametersList())));
+              this.productParametersList.equals(other.getProductParametersList())));
         __equalsCalc = null;
         return _equals;
     }
@@ -95,15 +95,7 @@ public class ProductParametersGroupStruct  implements java.io.Serializable {
             _hashCode += getProductParametersGroupName().hashCode();
         }
         if (getProductParametersList() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getProductParametersList());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getProductParametersList(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getProductParametersList().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -114,17 +106,18 @@ public class ProductParametersGroupStruct  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(ProductParametersGroupStruct.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ProductParametersGroupStruct"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ProductParametersGroupStruct"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("productParametersGroupName");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "product-parameters-group-name"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "productParametersGroupName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("productParametersList");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "product-parameters-list"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ProductParametersStruct"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "productParametersList"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfProductparametersstruct"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

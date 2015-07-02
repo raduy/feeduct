@@ -78,7 +78,7 @@ public class ItemInfo  implements java.io.Serializable {
 
     private int itIsNewUsed;
 
-    private int itIsBrandZone;
+    private java.lang.Integer itIsBrandZone;
 
     private pl.agh.tai.portsadapter.soap.generated.DurationInfoStruct itDurationInfo;
 
@@ -121,7 +121,7 @@ public class ItemInfo  implements java.io.Serializable {
            int itEndingInfo,
            int itIsAllegroStandard,
            int itIsNewUsed,
-           int itIsBrandZone,
+           java.lang.Integer itIsBrandZone,
            pl.agh.tai.portsadapter.soap.generated.DurationInfoStruct itDurationInfo) {
            this.itId = itId;
            this.itCountry = itCountry;
@@ -868,7 +868,7 @@ public class ItemInfo  implements java.io.Serializable {
      * 
      * @return itIsBrandZone
      */
-    public int getItIsBrandZone() {
+    public java.lang.Integer getItIsBrandZone() {
         return itIsBrandZone;
     }
 
@@ -878,7 +878,7 @@ public class ItemInfo  implements java.io.Serializable {
      * 
      * @param itIsBrandZone
      */
-    public void setItIsBrandZone(int itIsBrandZone) {
+    public void setItIsBrandZone(java.lang.Integer itIsBrandZone) {
         this.itIsBrandZone = itIsBrandZone;
     }
 
@@ -965,7 +965,9 @@ public class ItemInfo  implements java.io.Serializable {
             this.itEndingInfo == other.getItEndingInfo() &&
             this.itIsAllegroStandard == other.getItIsAllegroStandard() &&
             this.itIsNewUsed == other.getItIsNewUsed() &&
-            this.itIsBrandZone == other.getItIsBrandZone() &&
+            ((this.itIsBrandZone==null && other.getItIsBrandZone()==null) || 
+             (this.itIsBrandZone!=null &&
+              this.itIsBrandZone.equals(other.getItIsBrandZone()))) &&
             ((this.itDurationInfo==null && other.getItDurationInfo()==null) || 
              (this.itDurationInfo!=null &&
               this.itDurationInfo.equals(other.getItDurationInfo())));
@@ -1031,7 +1033,9 @@ public class ItemInfo  implements java.io.Serializable {
         _hashCode += getItEndingInfo();
         _hashCode += getItIsAllegroStandard();
         _hashCode += getItIsNewUsed();
-        _hashCode += getItIsBrandZone();
+        if (getItIsBrandZone() != null) {
+            _hashCode += getItIsBrandZone().hashCode();
+        }
         if (getItDurationInfo() != null) {
             _hashCode += getItDurationInfo().hashCode();
         }
@@ -1044,227 +1048,229 @@ public class ItemInfo  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(ItemInfo.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemInfo"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ItemInfo"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itId");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-id"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itCountry");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-country"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itCountry"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itName");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-name"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itPrice");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-price"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itPrice"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "float"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itBidCount");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-bid-count"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itBidCount"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itEndingTime");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-ending-time"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itEndingTime"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itSellerId");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-seller-id"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itSellerId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itSellerLogin");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-seller-login"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itSellerLogin"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itSellerRating");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-seller-rating"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itSellerRating"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itStartingTime");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-starting-time"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itStartingTime"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itStartingPrice");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-starting-price"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itStartingPrice"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "float"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itQuantity");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-quantity"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itQuantity"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itFotoCount");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-foto-count"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itFotoCount"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itReservePrice");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-reserve-price"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itReservePrice"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "float"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itLocation");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-location"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itLocation"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itBuyNowPrice");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-buy-now-price"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itBuyNowPrice"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "float"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itBuyNowActive");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-buy-now-active"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itBuyNowActive"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itHighBidder");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-high-bidder"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itHighBidder"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itHighBidderLogin");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-high-bidder-login"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itHighBidderLogin"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itDescription");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-description"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itDescription"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itOptions");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-options"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itOptions"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itState");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-state"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itState"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itIsEco");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-is-eco"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itIsEco"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itHitCount");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-hit-count"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itHitCount"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itPostcode");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-postcode"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itPostcode"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itVatInvoice");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-vat-invoice"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itVatInvoice"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itBankAccount1");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-bank-account1"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itBankAccount1"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itBankAccount2");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-bank-account2"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itBankAccount2"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itStartingQuantity");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-starting-quantity"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itStartingQuantity"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itIsForGuests");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-is-for-guests"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itIsForGuests"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itHasProduct");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-has-product"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itHasProduct"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itOrderFulfillmentTime");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-order-fulfillment-time"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itOrderFulfillmentTime"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itEndingInfo");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-ending-info"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itEndingInfo"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itIsAllegroStandard");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-is-allegro-standard"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itIsAllegroStandard"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itIsNewUsed");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-is-new-used"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itIsNewUsed"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itIsBrandZone");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-is-brand-zone"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itIsBrandZone"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itDurationInfo");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "it-duration-info"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "DurationInfoStruct"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itDurationInfo"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "DurationInfoStruct"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

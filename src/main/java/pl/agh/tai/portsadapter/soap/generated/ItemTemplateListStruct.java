@@ -12,7 +12,7 @@ public class ItemTemplateListStruct  implements java.io.Serializable {
 
     private java.lang.String itemTemplateName;
 
-    private pl.agh.tai.portsadapter.soap.generated.FieldsValue[] itemTemplateFields;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfFieldsvalue itemTemplateFields;
 
     public ItemTemplateListStruct() {
     }
@@ -20,7 +20,7 @@ public class ItemTemplateListStruct  implements java.io.Serializable {
     public ItemTemplateListStruct(
            int itemTemplateId,
            java.lang.String itemTemplateName,
-           pl.agh.tai.portsadapter.soap.generated.FieldsValue[] itemTemplateFields) {
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfFieldsvalue itemTemplateFields) {
            this.itemTemplateId = itemTemplateId;
            this.itemTemplateName = itemTemplateName;
            this.itemTemplateFields = itemTemplateFields;
@@ -72,7 +72,7 @@ public class ItemTemplateListStruct  implements java.io.Serializable {
      * 
      * @return itemTemplateFields
      */
-    public pl.agh.tai.portsadapter.soap.generated.FieldsValue[] getItemTemplateFields() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfFieldsvalue getItemTemplateFields() {
         return itemTemplateFields;
     }
 
@@ -82,7 +82,7 @@ public class ItemTemplateListStruct  implements java.io.Serializable {
      * 
      * @param itemTemplateFields
      */
-    public void setItemTemplateFields(pl.agh.tai.portsadapter.soap.generated.FieldsValue[] itemTemplateFields) {
+    public void setItemTemplateFields(pl.agh.tai.portsadapter.soap.generated.ArrayOfFieldsvalue itemTemplateFields) {
         this.itemTemplateFields = itemTemplateFields;
     }
 
@@ -104,7 +104,7 @@ public class ItemTemplateListStruct  implements java.io.Serializable {
               this.itemTemplateName.equals(other.getItemTemplateName()))) &&
             ((this.itemTemplateFields==null && other.getItemTemplateFields()==null) || 
              (this.itemTemplateFields!=null &&
-              java.util.Arrays.equals(this.itemTemplateFields, other.getItemTemplateFields())));
+              this.itemTemplateFields.equals(other.getItemTemplateFields())));
         __equalsCalc = null;
         return _equals;
     }
@@ -121,15 +121,7 @@ public class ItemTemplateListStruct  implements java.io.Serializable {
             _hashCode += getItemTemplateName().hashCode();
         }
         if (getItemTemplateFields() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getItemTemplateFields());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getItemTemplateFields(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getItemTemplateFields().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -140,23 +132,24 @@ public class ItemTemplateListStruct  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(ItemTemplateListStruct.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "ItemTemplateListStruct"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ItemTemplateListStruct"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itemTemplateId");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "item-template-id"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itemTemplateId"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itemTemplateName");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "item-template-name"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itemTemplateName"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("itemTemplateFields");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "item-template-fields"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "FieldsValue"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "itemTemplateFields"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfFieldsvalue"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

@@ -10,14 +10,14 @@ package pl.agh.tai.portsadapter.soap.generated;
 public class VariantStruct  implements java.io.Serializable {
     private int fid;
 
-    private pl.agh.tai.portsadapter.soap.generated.VariantQuantityStruct[] quantities;
+    private pl.agh.tai.portsadapter.soap.generated.ArrayOfVariantquantitystruct quantities;
 
     public VariantStruct() {
     }
 
     public VariantStruct(
            int fid,
-           pl.agh.tai.portsadapter.soap.generated.VariantQuantityStruct[] quantities) {
+           pl.agh.tai.portsadapter.soap.generated.ArrayOfVariantquantitystruct quantities) {
            this.fid = fid;
            this.quantities = quantities;
     }
@@ -48,7 +48,7 @@ public class VariantStruct  implements java.io.Serializable {
      * 
      * @return quantities
      */
-    public pl.agh.tai.portsadapter.soap.generated.VariantQuantityStruct[] getQuantities() {
+    public pl.agh.tai.portsadapter.soap.generated.ArrayOfVariantquantitystruct getQuantities() {
         return quantities;
     }
 
@@ -58,7 +58,7 @@ public class VariantStruct  implements java.io.Serializable {
      * 
      * @param quantities
      */
-    public void setQuantities(pl.agh.tai.portsadapter.soap.generated.VariantQuantityStruct[] quantities) {
+    public void setQuantities(pl.agh.tai.portsadapter.soap.generated.ArrayOfVariantquantitystruct quantities) {
         this.quantities = quantities;
     }
 
@@ -77,7 +77,7 @@ public class VariantStruct  implements java.io.Serializable {
             this.fid == other.getFid() &&
             ((this.quantities==null && other.getQuantities()==null) || 
              (this.quantities!=null &&
-              java.util.Arrays.equals(this.quantities, other.getQuantities())));
+              this.quantities.equals(other.getQuantities())));
         __equalsCalc = null;
         return _equals;
     }
@@ -91,15 +91,7 @@ public class VariantStruct  implements java.io.Serializable {
         int _hashCode = 1;
         _hashCode += getFid();
         if (getQuantities() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getQuantities());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getQuantities(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
+            _hashCode += getQuantities().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -110,17 +102,18 @@ public class VariantStruct  implements java.io.Serializable {
         new org.apache.axis.description.TypeDesc(VariantStruct.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "VariantStruct"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "VariantStruct"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("fid");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "fid"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "fid"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("quantities");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "quantities"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:AllegroWebApi", "VariantQuantityStruct"));
+        elemField.setXmlName(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "quantities"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://webapi.allegro.pl/service.php", "ArrayOfVariantquantitystruct"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
