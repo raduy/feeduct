@@ -9,10 +9,7 @@ import java.util.Collection;
 public interface IFeedRepository {
 
     void add(@NotNull Feed feed);
-
     Feed load(@NotNull FeedId id);
-
     void delete(@NotNull FeedId id);
-
     Collection<Feed> immutableView();
 }

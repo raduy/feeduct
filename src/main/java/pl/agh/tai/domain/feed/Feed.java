@@ -2,15 +2,23 @@ package pl.agh.tai.domain.feed;
 
 import pl.agh.tai.domain.Auction;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+@Entity
 public class Feed {
-    private final FeedId id;
-    private final FeedQuery feedQuery;
+
+    @EmbeddedId
+    private FeedId id;
+
+    @Embedded
+    private FeedQuery feedQuery;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Collection<Auction> auctions;
 
     public Feed(FeedQuery feedQuery) {
@@ -32,4 +40,6 @@ public class Feed {
         this.auctions = newAuctions;
     }
 
+    Feed() { //why JPA why
+    }
 }

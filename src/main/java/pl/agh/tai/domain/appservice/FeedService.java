@@ -23,8 +23,8 @@ public class FeedService {
 
     public void registerNewFeed(@NotNull Feed feed) {
         checkNotNull(feed);
-        this.feedRepository.add(feed);
         feed.updateAuctions(allegroClient.findMatchingAuctions(feed.feedQuery()));
+        this.feedRepository.add(feed);
     }
 }
 

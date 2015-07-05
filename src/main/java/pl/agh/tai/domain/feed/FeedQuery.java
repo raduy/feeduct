@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class FeedQuery {
     @NotEmpty
-    private final String keywords;
-    private final String description;
+    private String keywords;
+    private String description;
 
     @JsonCreator
     public FeedQuery(@JsonProperty("keywords") String keywords,
@@ -22,5 +25,8 @@ public class FeedQuery {
 
     public String description() {
         return description;
+    }
+
+    FeedQuery() {
     }
 }

@@ -1,10 +1,15 @@
 package pl.agh.tai.domain;
 
-public class Auction {
-    private final Vendor vendor;
-    private final String image;
-    private final String title;
-    private final String url;
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Auction extends AbstractPersistable<Long>{
+    private Vendor vendor;
+    private String image;
+    private String title;
+    private String url;
 
     public Auction(Vendor vendor, String image, String title, String url) {
         this.vendor = vendor;
@@ -13,5 +18,6 @@ public class Auction {
         this.url = url;
     }
 
-
+    Auction() { //why JPA why
+    }
 }
