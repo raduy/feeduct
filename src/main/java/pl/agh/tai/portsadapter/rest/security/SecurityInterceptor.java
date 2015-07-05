@@ -43,7 +43,7 @@ public class SecurityInterceptor implements Filter {
 
     private boolean isLoginRequest(HttpServletRequest request) {
         String requestURI = request.getRequestURI();
-        return requestURI.contains("login") || requestURI.contains("register");
+        return requestURI.contains("login") || requestURI.contains("register") || requestURI.contains("actuator");
     }
 
     @Override
