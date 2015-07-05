@@ -28,6 +28,11 @@ public class InMemoryFeedRepository implements IFeedRepository {
     }
 
     @Override
+    public void delete(@NotNull FeedId id) {
+        this.feeds.remove(id);
+    }
+
+    @Override
     public Collection<Feed> immutableView() {
         return ImmutableSet.copyOf(feeds.values());
     }

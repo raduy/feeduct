@@ -12,5 +12,7 @@ public interface IFeedRepository {
 
     Feed load(@NotNull FeedId id);
 
+    void delete(@NotNull FeedId id);
+
     Collection<Feed> immutableView();
 }

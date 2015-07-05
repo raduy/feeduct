@@ -1,6 +1,5 @@
 package pl.agh.tai.portsadapter.soap.allegroapi.api;
 
-
 import pl.agh.tai.domain.Auction;
 
 import java.util.Set;
