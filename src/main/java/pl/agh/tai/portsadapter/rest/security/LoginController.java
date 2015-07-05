@@ -4,8 +4,9 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pl.agh.tai.domain.security.token.AuthToken;
 import pl.agh.tai.portsadapter.rest.JsonResponse;
-import pl.agh.tai.portsadapter.rest.security.user.AuthenticationService;
+import pl.agh.tai.domain.security.user.AuthenticationService;
 
 import java.util.Optional;
 
@@ -28,7 +29,10 @@ public class LoginController {
         this.authService = authService;
     }
 
-    @RequestMapping(value = "/login", method = POST, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/login",
+            method = POST,
+            consumes = APPLICATION_JSON_VALUE,
+            produces = APPLICATION_JSON_VALUE)
     public JsonResponse<AuthToken> doLogin(@RequestBody Credentials credentials) {
         Optional<AuthToken> tokenOptional = authService.loginWithCredentials(credentials);
 
@@ -43,10 +47,14 @@ public class LoginController {
         return JsonResponse.ofException(ex);
     }
 
-    @RequestMapping(value = "/logout", method = POST, consumes = APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/logout",
+            method = POST,
+            consumes = APPLICATION_JSON_VALUE)
     public JsonResponse doLogout(@RequestHeader("Authorization") String authHeader) {
-        authService.doLogout(authHeader.split("\\s+")[1]);
+        String authToken = authHeader.split("\\s+")[1];
+        authService.doLogout(authToken);
 
+        LOG.debug("User with authToken: {} logged out", authToken);
         return JsonResponse.ofSuccess();
     }
 }

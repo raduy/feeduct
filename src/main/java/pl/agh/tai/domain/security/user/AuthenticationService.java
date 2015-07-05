@@ -1,8 +1,10 @@
-package pl.agh.tai.portsadapter.rest.security.user;
+package pl.agh.tai.domain.security.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.agh.tai.portsadapter.rest.security.AuthToken;
+import pl.agh.tai.domain.security.token.AuthToken;
+import pl.agh.tai.domain.security.token.TokenCache;
+import pl.agh.tai.domain.security.token.TokenFactory;
 import pl.agh.tai.portsadapter.rest.security.Credentials;
 
 import java.util.Optional;

@@ -3,9 +3,9 @@ package pl.agh.tai.portsadapter.rest.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.agh.tai.portsadapter.rest.JsonResponse;
-import pl.agh.tai.portsadapter.rest.security.user.User;
-import pl.agh.tai.portsadapter.rest.security.user.UserAlreadyExistsException;
-import pl.agh.tai.portsadapter.rest.security.user.UserRepository;
+import pl.agh.tai.domain.security.user.User;
+import pl.agh.tai.domain.security.user.UserAlreadyExistsException;
+import pl.agh.tai.domain.security.user.UserRepository;
 
 import static org.springframework.http.HttpStatus.CONFLICT;
 import static org.springframework.http.HttpStatus.CREATED;

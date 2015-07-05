@@ -1,9 +1,8 @@
-package pl.agh.tai.portsadapter.rest.security.user;
+package pl.agh.tai.domain.security.token;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import org.springframework.stereotype.Component;
-import pl.agh.tai.portsadapter.rest.security.AuthToken;
 
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;

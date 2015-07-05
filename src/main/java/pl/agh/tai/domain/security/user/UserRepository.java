@@ -1,10 +1,13 @@
-package pl.agh.tai.portsadapter.rest.security.user;
+package pl.agh.tai.domain.security.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Objects;
+import javax.validation.constraints.NotNull;
 import java.util.Optional;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+import static java.util.Objects.nonNull;
 
 /**
  * @author Lukasz Raduj 2015 raduj.lukasz@gmail.com.
@@ -20,13 +23,15 @@ public class UserRepository {
         saveUnique(new User("luk", "rad"));
     }
 
-    public Optional<User> loadByEmail(String email) {
+    public Optional<User> loadByEmail(@NotNull String email) {
+        checkNotNull(email, "When loading user for repository email cannot be null");
         return Optional.ofNullable(userDao.findOne(email));
     }
 
-    public void saveUnique(User user) {
+    public void saveUnique(@NotNull User user) {
+        checkNotNull(user, "User for save cannot be null");
         User existing = userDao.findOne(user.email());
-        if (Objects.nonNull(existing)) {
+        if (nonNull(existing)) {
             throw new UserAlreadyExistsException(user.email());
         }
         userDao.save(user);

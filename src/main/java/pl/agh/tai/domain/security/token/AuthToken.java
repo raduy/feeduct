@@ -1,4 +1,4 @@
-package pl.agh.tai.portsadapter.rest.security;
+package pl.agh.tai.domain.security.token;
 
 /**
  * @author Lukasz Raduj 2015 raduj.lukasz@gmail.com.

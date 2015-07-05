@@ -2,7 +2,7 @@ package pl.agh.tai.portsadapter.rest.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.agh.tai.portsadapter.rest.security.user.AuthenticationService;
+import pl.agh.tai.domain.security.user.AuthenticationService;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package pl.agh.tai.portsadapter.rest.security.user;
+package pl.agh.tai.domain.security.user;
 
 import pl.agh.tai.portsadapter.rest.security.Credentials;
 
